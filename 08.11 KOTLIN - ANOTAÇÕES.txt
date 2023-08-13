@@ -1,0 +1,16 @@
+KOTLIN - ANOTAÇÕES 
+
+inicio o código com o main para iniciar uma função 
+
+Parametrização da função - informação dentro do parenteses 
+
+Argumento - chega 
+Parametro - sai
+
+Responsabilidade única - simplificar o código
+
+Os nomes da função devem ser colocados como função - somar, exibir, retornar
+
+-- Buscar informações no material da aula
+
+A cada processo, deve ser feito uma ação/função
