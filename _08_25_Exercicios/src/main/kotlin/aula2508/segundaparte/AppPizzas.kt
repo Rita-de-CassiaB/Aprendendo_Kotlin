@@ -3,11 +3,9 @@ package aula2508.segundaparte
 import javax.swing.JOptionPane
 
 fun main() {
-    val Pedido1 = PedidoPizza()
+    val PedidoPizza = PedidoPizza()
 
-    val nome = JOptionPane.showInputDialog("Qual é o modelo do seu relógio?").toString()
-    val valor = JOptionPane.showInputDialog("Qual é o valor do seu relógio?").toDouble()
-    val hora = JOptionPane.showInputDialog("Que horas são?").toInt()
-    val minuto = JOptionPane.showInputDialog("Que minutos são?").toInt()
-    val segundo = JOptionPane.showInputDialog("Que segundos são?").toInt()
+    val PedidoPizza.sabor:String = JOptionPane.showInputDialog("Qual é o sabor da sua pizza?")
+    var PedidoPizza.preco:Double = JOptionPane.showInputDialog("Qual é o valor da sua pizza").toDouble()
+    val PedidoPizza.qntamigos:Int = JOptionPane.showInputDialog("São quantos amigos?").toInt()
 }
