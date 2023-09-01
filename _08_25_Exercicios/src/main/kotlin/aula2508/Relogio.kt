@@ -1,6 +1,5 @@
 package aula2508
 
-
 class Relogio {
     var modelo: String = ""
     var preco: Double = 0.0
