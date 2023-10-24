@@ -1,4 +1,3 @@
-import Filme.id
 import javax.swing.JOptionPane
 
 fun main() {
@@ -11,32 +10,42 @@ fun main() {
                 "2 - Consultar Filme.\n" +
                 "3 - Excluir Filme.\n" +
                 "4 - Sair").toInt()
+        if (resposta == 4){
+            break
+        }else if (resposta == 1){
 
-        if (resposta == 1){
-            Filme.nome = JOptionPane.showInputDialog("Qual é o nome do filme?")
-            Filme.diretor = JOptionPane.showInputDialog("Qual é o nome do diretor do filme?")
-            Filme.indicadoOscar = JOptionPane.showInputDialog("Foi indicado ao oscar? \n 1-sim \n 2-não").toBoolean()
-            Filme.custoProducao = JOptionPane.showInputDialog( "Quanto foi o custo de produção?").toDouble()
+            val novoFilme = Filme()
 
-            repositorio.adicionarFilme(novoFilme = Filme)
+            novoFilme.nome = JOptionPane.showInputDialog("Qual é o nome do filme?")
+            novoFilme.diretor = JOptionPane.showInputDialog("Qual é o nome do diretor do filme?")
+            novoFilme.indicadoOscar = JOptionPane.showInputDialog("Foi indicado ao oscar? \n 1-sim \n 2-não").toBoolean()
+            novoFilme.custoProducao = JOptionPane.showInputDialog( "Quanto foi o custo de produção?").toDouble()
+
+            repositorio.adicionarFilme(novoFilme)
 
         }else if (resposta == 2){
 
             var ultimo = repositorio.buscarCodigo()
-            var codigo = ("Insira um id entre 0 e $ultimo").toInt()
+            var codigo = JOptionPane.showInputDialog("Insira um id entre 0 e $ultimo").toInt()
 
             if (codigo <= ultimo ){
-                repositorio.consultarFilme(codigo = id)
-            JOptionPane.showMessageDialog(null, "Filme com o id:${id} "+
-                    "Nome: ${Filme.nome}"+
-                    "Diretor: ${Filme.diretor}" +
-                    "Indicado ao Oscar: ${Filme.indicadoOscar}"+
-                    "Custo de produção: R$ ${Filme.custoProducao}")
+                var filme = repositorio.consultarFilme(codigo)
+            JOptionPane.showMessageDialog(null, "Filme com o id:${filme.id} "+
+                    "Nome: ${filme.nome} \n "+
+                    "Diretor: ${filme.diretor} \n " +
+                    "Indicado ao Oscar: ${filme.indicadoOscar} \n "+
+                    "Custo de produção: R$ ${filme.custoProducao} \n ")
             }
+        }else{
+            var ultimo = repositorio.buscarCodigo()
 
+            var codigoFilmeExcluir = JOptionPane.showInputDialog("Insira o id de um filme entre 0 e $ultimo para excluir").toInt()
+
+            var lalala = repositorio.atualizarFilmes(codigoFilmeExcluir)
+        val mensagem = "Linhas afetadas $lalala filme excluido"
+            JOptionPane.showMessageDialog(null, mensagem)
 
         }
-
 
 
     }

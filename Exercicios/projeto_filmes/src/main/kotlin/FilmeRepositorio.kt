@@ -9,14 +9,6 @@ class FilmeRepositorio {
         JdbcTemplate = Conexao.JdbcTemplate!!
     }
 
-    fun buscarCodigo():Int {
-        val ultimoCodigo = JdbcTemplate.queryForObject("""
-            select max(codigo) from filmes
-        """, Int::class.java
-        )
-        return ultimoCodigo
-    }
-
     fun adicionarFilme(novoFilme:Filme){
         JdbcTemplate.update("""
             insert into filmes(nome, diretor, indicadoOscar, custoProducao) values
@@ -25,20 +17,26 @@ class FilmeRepositorio {
         """)
     }
 
+    fun buscarCodigo():Int {
+        val ultimoCodigo = JdbcTemplate.queryForObject("""
+           select max(id) from filmes   
+                """, Int::class.java
+        )
+        return ultimoCodigo
+    }
+
     fun consultarFilme(codigo: Int): Filme{
         val filme = JdbcTemplate.queryForObject("""
-            select * from filmes where codigo = $codigo
-        """, BeanPropertyRowMapper
-            (Filme::class.java))
-     return Filme
+            select * from filmes where id = $codigo
+        """, BeanPropertyRowMapper (Filme::class.java))
+     return filme
     }
 
-    fun excluirFilme(codigo: Int){
+    fun atualizarFilmes(codigo: Int): Int {
         val excluidos = JdbcTemplate.update("""
-            de
-        """.trimIndent())
+            delete from filmes where id = $codigo
+        """)
+        return excluidos
 
     }
-
-
 }

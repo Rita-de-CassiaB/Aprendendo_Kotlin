@@ -1,4 +1,4 @@
-object Filme {
+class Filme {
     var id: Int = 0
     var nome: String = ""
     var diretor: String = ""
