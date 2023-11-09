@@ -32,7 +32,9 @@ fun main() {
 
                 if (id >= primeiro && id <= ultimo){
                     var musica = repositorio.consultarMusica(id)
+
                     JOptionPane.showMessageDialog(null, "Musica com o Id: $id\n Titulo: ${musica.titulo}\n Artista: ${musica.artista}\n Data de criação: ${musica.dataCriacao}")
+
                 } else{
                     JOptionPane.showMessageDialog(null, "Insira um id válido (entre $primeiro e $ultimo)")
                 }

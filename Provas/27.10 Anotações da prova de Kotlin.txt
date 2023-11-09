@@ -1,0 +1,16 @@
+Anotações da prova de Kotlin
+
+Classe Música:
+dataCriação -> LocalDate
+
+Classe Conexão:
+criação com objeto
+
+RepositorioMusica:
+banco de dados e tabelas com nomes no singular
+
+AppMusica:
+While (true) com JO com """ """
+
+
+
