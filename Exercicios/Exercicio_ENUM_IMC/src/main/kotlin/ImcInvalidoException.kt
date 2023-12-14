@@ -1,0 +1,2 @@
+class ImcInvalidoException : RuntimeException() {
+}
